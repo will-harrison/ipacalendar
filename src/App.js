@@ -2,7 +2,6 @@ import styled from 'styled-components';
 import dateParser from './utils/dateParser';
 import Event from './components/Event';
 import Month from './components/Month';
-import Title from './components/Title';
 import Row from './components/Row';
 import Column from './components/Column';
 import Header from './components/Header';
@@ -131,12 +130,6 @@ const EventRow = styled(Row)`
   justify-content: flex-start;
   flex-wrap: wrap;
   gap: 3rem;
-`;
-
-const Logo = styled.svg`
-  path {
-    stroke: 'white';
-  }
 `;
 
 export default App;
