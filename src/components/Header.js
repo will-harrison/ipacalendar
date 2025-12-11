@@ -2,19 +2,20 @@ import styled from 'styled-components';
 import Row from './Row';
 import Column from './Column';
 import Title from './Title';
+import ipaTransparent from '../ipaTransparent.png';
 
 const Header = () => {
   return (
     <Container>
       <Location>
-        <Cal>Calendar of Events</Cal>
+        <Title size="2rem">Calendar of Events</Title>
       </Location>
       <Location>
-        <Img src="/ipaTransparent.png" />
+        <Img src={ipaTransparent} />
       </Location>
       <Location>
-        <Cal>203 Cedar St.</Cal>
-        <Cal>Downtown Sandpoint</Cal>
+        <Title size="2rem">203 Cedar St.</Title>
+        <Title size="2rem">Downtown Sandpoint</Title>
       </Location>
     </Container>
   );
@@ -36,15 +37,5 @@ const Img = styled.img`
   width: 170px;
   margin-top: 1rem;
 `;
-
-const Cal = styled(Title)`
-  font-size: 2rem;
-`;
-
-// const Header = styled(Row)`
-//   justify-content: flex-start;
-//   align-items: center;
-//   gap: 4rem;
-// `;
 
 export default Header;
