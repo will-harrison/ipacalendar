@@ -10,7 +10,7 @@ const Event = ({ event }) => {
 
   return (
     <Column>
-      <Day>{dt.day}</Day>
+      <Day>{dt.day.value}</Day>
       <Offset>
         <Attraction>
           {attraction.map((a) => (
