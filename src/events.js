@@ -1,0 +1,55 @@
+export default [
+  {
+    id: 100,
+    date: '2025-12-09',
+    attraction: ['Lou Hazel', 'Alexis Something', 'Little Wolf'],
+    time: '6pm',
+    details: ['$20 cover charge', 'Merch available'],
+  },
+  {
+    id: 101,
+    date: '2025-12-08',
+    attraction: ['Monday Night Trivia!', 'Hosted by Ben Olsen'],
+    time: '6pm - 8:30pm',
+    details: ['Opa Greek Food Truck'],
+  },
+  {
+    id: 102,
+    date: '2026-01-01',
+    attraction: [
+      'TACOS!',
+      'Utara Tap Takeover',
+      'Kiniksu Land Trust Fundraiser',
+    ],
+    time: '7pm',
+    details: ['Carne Guisada', '$15 cover charge', 'Merch available'],
+  },
+  {
+    id: 103,
+    date: '2025-12-15',
+    attraction: ['Monday Night Trivia!', 'Hosted by David Miles'],
+    time: '6pm - 8:30pm',
+    details: ['Opa Greek Food Truck'],
+  },
+  {
+    id: 104,
+    date: '2025-12-22',
+    attraction: ['Monday Night Trivia!', 'Hosted by Davey'],
+    time: '6pm - 8:30pm',
+    details: ['Opa Greek Food Truck'],
+  },
+  {
+    id: 105,
+    date: '2025-12-29',
+    attraction: ['Monday Night Trivia!', 'Hosted by Marsha'],
+    time: '6pm - 8:30pm',
+    details: ['Opa Greek Food Truck'],
+  },
+  {
+    id: 106,
+    date: '2026-01-05',
+    attraction: ['Monday Night Trivia!', 'Hosted by Brett'],
+    time: '6pm - 8:30pm',
+    details: ['Opa Greek Food Truck'],
+  },
+];
