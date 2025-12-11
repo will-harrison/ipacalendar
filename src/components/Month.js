@@ -7,7 +7,7 @@ const Month = styled.div`
   justify-content: flex-end;
   align-items: flex-start;
   padding-right: 4rem;
-  font-size: 3rem;
+  font-size: ${({ size }) => size || '3rem'};
   font-weight: 600;
   letter-spacing: 0.5rem;
   opacity: 0.8;
