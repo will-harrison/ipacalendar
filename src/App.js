@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import styled from 'styled-components';
 import dateParser from './utils/dateParser';
 import Event from './components/Event';
@@ -5,81 +6,24 @@ import Month from './components/Month';
 import Row from './components/Row';
 import Column from './components/Column';
 import Header from './components/Header';
-import NewBooking from './components/NewBooking';
-
-const events = [
-  {
-    date: '2025-09-15',
-    attraction: [
-      'TACOS!',
-      'Utara Tap Takeover',
-      'Kiniksu Land Trust Fundraiser',
-    ],
-    time: '7pm',
-    details: ['Carne Guisada', '$15 cover charge', 'Merch available'],
-  },
-  {
-    date: '2025-09-17',
-    attraction: [
-      'TACOS!',
-      'Utara Tap Takeover',
-      'Kiniksu Land Trust Fundraiser',
-    ],
-    time: '7pm',
-    details: ['Carne Guisada', '$15 cover charge', 'Merch available'],
-  },
-  {
-    date: '2025-09-18',
-    attraction: [
-      'TACOS!',
-      'Utara Tap Takeover',
-      'Kiniksu Land Trust Fundraiser',
-    ],
-    time: '7pm',
-    details: ['Carne Guisada', '$15 cover charge', 'Merch available'],
-  },
-  {
-    date: '2025-09-19',
-    attraction: [
-      'TACOS!',
-      'Utara Tap Takeover',
-      'Kiniksu Land Trust Fundraiser',
-    ],
-    time: '7pm',
-    details: ['Carne Guisada', '$15 cover charge', 'Merch available'],
-  },
-  {
-    date: '2025-10-01',
-    attraction: [
-      'TACOS!',
-      'Utara Tap Takeover',
-      'Kiniksu Land Trust Fundraiser',
-    ],
-    time: '7PM - 9PM',
-    details: ['Carne Guisada', '$15 cover charge', 'Merch available'],
-  },
-  {
-    date: '2025-10-10',
-    attraction: [
-      'TACOS!',
-      'Utara Tap Takeover',
-      'Kiniksu Land Trust Fundraiser',
-    ],
-    time: '7pm',
-    details: ['Carne Guisada', '$15 cover charge', 'Merch available'],
-  },
-];
+import events from './events';
 
 function App() {
-  const withDt = events.map((e) => ({
-    ...e,
-    dt: dateParser({ date: e.date }),
-  }));
+  const [grouper, setGrouper] = useState('monthString');
+  const [range, setRange] = useState(['2025-12-01', '2026-01-31']);
 
-  const grouper = 'monthString';
+  const withDt = events
+    .filter((f) => f.date >= range[0] && f.date <= range[1])
+    .map((e) => ({
+      ...e,
+      dt: dateParser({ date: e.date }),
+    }))
+    .toSorted((a, b) => a?.dt?.date?.value - b?.dt?.date?.value);
 
-  const grouped = Object.groupBy(withDt, (e) => e.dt[grouper]);
-  // const ordered = grouped.toSorted((a, b) => a.date - b.date);
+  const parents = Object.entries(
+    Object.groupBy(withDt, (e) => e.dt[e.dt[grouper].parent].value)
+  ).map((m) => m);
+  const grouped = Object.groupBy(withDt, (e) => e.dt[grouper].value);
   const mapped = Object.entries(grouped).map((m) => m);
 
   return (
@@ -88,18 +32,17 @@ function App() {
       <CenterEvent>
         {mapped.map((m) => {
           return (
-            <>
+            <div key={m.id}>
               <Month>{m[0]}</Month>
               <EventRow>
                 {m[1].map((e) => (
                   <Event event={e} />
                 ))}
               </EventRow>
-            </>
+            </div>
           );
         })}
       </CenterEvent>
-      <NewBooking />
     </Container>
   );
 }
@@ -114,6 +57,15 @@ const Container = styled.div`
   );
   color: white;
   padding: 1rem 4rem;
+  @media print {
+    min-height: 100%;
+    @page {
+      size: A4 portrait;
+      height: 100%; /* Sets page size to A4 in portrait orientation */
+      /* or */
+      /* size: 8.5in 11in; Sets page size to Letter (width x height) */
+    }
+  }
 `;
 
 // const Header = styled(Row)`
