@@ -1,0 +1,15 @@
+{
+  "files": {
+    "main.css": "/ipacal/static/css/main.e6c13ad2.css",
+    "main.js": "/ipacal/static/js/main.b1e4032c.js",
+    "static/js/453.69b0aeee.chunk.js": "/ipacal/static/js/453.69b0aeee.chunk.js",
+    "index.html": "/ipacal/index.html",
+    "main.e6c13ad2.css.map": "/ipacal/static/css/main.e6c13ad2.css.map",
+    "main.b1e4032c.js.map": "/ipacal/static/js/main.b1e4032c.js.map",
+    "453.69b0aeee.chunk.js.map": "/ipacal/static/js/453.69b0aeee.chunk.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.e6c13ad2.css",
+    "static/js/main.b1e4032c.js"
+  ]
+}
